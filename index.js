@@ -1,33 +1,24 @@
-// .checked = property that determines the checked state of an
-//            HTML checkbox or radio button element
+// SWITCH = can be an efficient replacement to many else if statements
 
-const myCheckBox = document.getElementById("myCheckBox");
-const visaBtn = document.getElementById("visaBtn");
-const masterCardBtn = document.getElementById("masterCardBtn");
-const payPalBtn = document.getElementById("payPalBtn");
-const mySubmit = document.getElementById("mySubmit");
-const subResult = document.getElementById("subResult");
-const paymentResult = document.getElementById("paymentResult");
+let testScore = 92;
+let letterGrade;
 
-mySubmit.onclick = function(){
-
-    if(myCheckBox.checked){
-        subResult.textContent = `You are subscribed!`;
-    }
-    else{
-        subResult.textContent = `You are NOT subscribed!`;
-    }
-
-    if(visaBtn.checked){
-        paymentResult.textContent = `You are paying with Visa`;
-    }
-    else if(masterCardBtn.checked){
-        paymentResult.textContent = `You are paying with MasterCard`;
-    }
-    else if(payPalBtn.checked){
-        paymentResult.textContent = `You are paying with PayPal`;
-    }
-    else{
-        paymentResult.textContent = `You must select a payment type`;
-    }
+switch(true){
+    case testScore >= 90:
+        letterGrade = "A";
+        break;
+    case testScore >= 80:
+        letterGrade = "B";
+        break;
+    case testScore >= 70:
+        letterGrade = "C";
+        break;
+    case testScore >= 60:
+        letterGrade = "D";
+        break;
+    default:
+        letterGrade = "F";
+        break;
 }
+
+console.log(letterGrade);
