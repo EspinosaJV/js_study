@@ -1,12 +1,22 @@
-// string slicing = creating a substring
-//                  from a potion of another string
+// Method Chaining = Calling one method after another
+//                   in one continuous line of code.
 
-//                  string.slice(start, end)
+// ----- NO METHOD CHALLENGE -----
 
-const email = "johnvincentespinosa1@gmail.com";
+username = username.trim();
+let letter = username.charAt(0);
+letter = letter.toUpperCase();
 
-let username = email.slice(0, email.indexOf("@"));
-let extension = email.slice(email.indexOf("@") + 1);
+let extraChars = username.slice(1);
+extraChars = extraChars.toLowerCase();
+username = letter + extraChars;
 
 console.log(username);
-console.log(extension);
+
+// ----- METHOD CHAINING ----- 
+
+let username = window.prompt("Enter your username");
+
+username = username.trim().charAt(0).toUpperCase() + userName.trim().slice(1).toLowerCase();
+
+console.log(username);
