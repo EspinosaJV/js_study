@@ -1,7 +1,12 @@
-// string methods = allow you to manipulate and work with text (strings)
+// string slicing = creating a substring
+//                  from a potion of another string
 
-let phoneNumber = "123-456-7890";
+//                  string.slice(start, end)
 
-phoneNumber = phoneNumber.padEnd(15, "0");
+const email = "johnvincentespinosa1@gmail.com";
 
-console.log(phoneNumber);
+let username = email.slice(0, email.indexOf("@"));
+let extension = email.slice(email.indexOf("@") + 1);
+
+console.log(username);
+console.log(extension);
