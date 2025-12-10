@@ -14,6 +14,19 @@ function multiply(x, y){
 function divide(x, y){
     return x / y;
 }
-function isEven(){
-    
+function isEven(number){
+    return number % 2 === 0 ? true : false;
 }
+function isValidEmail(email){
+    if(email.includes("@")){
+        return true;
+    }
+    else {
+        return false;
+    }
+
+    return email.includes("@") ? true : false;
+}
+
+console.log(isValidEmail("ElonMusk.com"));
+console.log(isValidEmail("Zuckerborg@MediaMetadata.com"));
