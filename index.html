@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>My website</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input type="checkbox" id="myCheckBox">
-    <label for="myCheckBox">subscribe</label><br><br>
 
-    <input type="radio" id="visaBtn" name="card">
-    <label for="visaBtn">Visa</label><br>
-    <input type="radio" id="masterCardBtn" name="card">
-    <label for="masterCardBtn">MasterCard</label><br>
-    <input type="radio" id="payPalBtn" name="card">
-    <label for="payPalBtn">PayPal</label><br><br>
+    <form>
+        <h1>Temperature conversion:</h1>
+        <input type="number" id="textBox" value="0"><br>
 
-    <button type="submit" id="mySubmit">submit</button>
+        <input type="radio" id="toFahrenheit" name="unit">
+        <label for="toFahrenheit">Celsius ➡️ Fahrenheit</label><br>
 
-    <p id="subResult"></p>
-    <p id="paymentResult"></p>
+        <input type="radio" id="toCelsius" name="unit">
+        <label for="toCelsius">Fahrenheit ➡️ Celsius</label><br>
+
+        <button type="button" onclick="convert()">submit</button>
+        <p id="result">Select a unit</p>
+    </form>
 
     <script src="index.js"></script>
 </body>
