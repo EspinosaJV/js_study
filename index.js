@@ -1,12 +1,18 @@
-// rest parameters = (...rest) allow a function work with a variable
-//                   number of arguments by bundling them into an array
-//                   spread = expands an array into separate elements
-//                   rest = bundles seperate elements into an array
+// DICE ROLLER PROGRAM
 
-function combineStrings(...strings){
-    return strings.join(" ");
+function rollDice(){
+    const numOfDice = document.getElementById("numOfDice").value;
+    const diceResult = document.getElementById("diceResult");
+    const diceImages = document.getElementById("diceImages");
+    const values = [];
+    const images = [];
+
+    for(let i = 0; i < numOfDice; i++){
+        const value = Math.floor(Math.random() * 6) + 1;
+        values.push(value);
+        images.push(`<img src="dice_images/${value}.png alt="Dice ${value}">`)
+    }
+
+    diceResult.textContent = `dice: ${values.join(', ')}`;
+    diceImages.innerHTML = images.join('');
 }
-
-const fullName = combineStrings("Mr.", "John Vincent", "Espinosa", "III");
-
-console.log(fullName);
