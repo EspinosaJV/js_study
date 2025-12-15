@@ -1,45 +1,16 @@
-// RANDOM PASSWORD GENERATOR
+// callback = a function that is passed as an argument to another function
 
-function generatePassword(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols){
+sum(displayPage, 1, 2);
 
-    const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
-    const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const numberChars = "0123456789";
-    const symbolChars = "!@#$%^&*()_+-="
-
-    let allowedChars = "";
-    let password = "";
-
-    allowedChars += includeLowercase ? lowercaseChars : "";
-    allowedChars += includeUppercase ? uppercaseChars : "";
-    allowedChars += includeNumbers ? numberChars : "";
-    allowedChars += includeSymbols ? symbolChars : "";
-
-    if(length <= 0){
-        return `(password length must be at least 1!)`;
-    }
-    if(allowedChars.length === 0){
-        return `(At least 1 set of characters need to be selected)`;
-    }
-
-    for(let i = 0; i < length; i++){
-        const randomIndex = Math.floor(Math.random() * allowedChars.length);
-        password += allowedChars[randomIndex];
-    }
-
-    return password;
+function sum(callback, x, y){
+    let result = x + y;
+    callback(result);
 }
 
-const passwordLength = 10;
-const includeLowercase = true;
-const includeUppercase = true;
-const includeNumbers = true;
-const includeSymbols = true;
+function displayConsole(result){
+    console.log(result);
+}
 
-const password = generatePassword(passwordLength, 
-                                  includeLowercase, 
-                                  includeUppercase, 
-                                  includeNumbers, 
-                                  includeSymbols);
-
-console.log(`Generated password: ${password}`);
+function displayPage(result){
+    document.getElementById("myH1").textContent = result;
+}
