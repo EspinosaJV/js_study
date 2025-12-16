@@ -1,12 +1,17 @@
-// .map() = accepts a callback and applies that function
-//          to each element of an array, then return a new array
+// .filter() = creates a new array by filtering
+//             out elements
 
-const dates = ["2024-1-10", "2025-2-20", "2026-3-30"];
-const formattedDates = dates.map(formatDates);
+const words = ["apple", "orange", "banana", "kiwi", "pomegranate", "coconut"];
+const shortWords = words.filter(getShortWords);
+const longWords = words.filter(getLongWords);
 
-console.log(formattedDates);
+console.log(shortWords);
+console.log(longWords);
 
-function formatDates(element){
-    const parts = element.split("-");
-    return `${parts[1]}/${parts[2]}/${parts[0]}`;
+function getShortWords(element){
+    return element.length <= 6;
+}
+
+function getLongWords(element){
+    return element.length > 6;
 }
