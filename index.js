@@ -1,29 +1,12 @@
-// forEach() = method used to iterate over the elements
-//             of an array and apply a specified function (callback)
-//             to each element
+// .map() = accepts a callback and applies that function
+//          to each element of an array, then return a new array
 
-//             array.forEach(callback)
-//             element, index, array are provided
+const dates = ["2024-1-10", "2025-2-20", "2026-3-30"];
+const formattedDates = dates.map(formatDates);
 
-let fruits = ["APPLE", "ORANGE", "BANANA", "COCONUT"];
+console.log(formattedDates);
 
-fruits.forEach(upperCase);
-fruits.forEach(lowerCase);
-fruits.forEach(capitalize);
-fruits.forEach(display);
-
-function upperCase(element, index, array){
-    array[index] = element.toUpperCase();
-}
-
-function lowerCase(element, index, array){
-    array[index] = element.toLowerCase();
-}
-
-function capitalize(element, index, array){
-    array[index] = element.charAt(0).toUpperCase() + element.slice(1);
-}
-
-function display(element){
-    console.log(element);
+function formatDates(element){
+    const parts = element.split("-");
+    return `${parts[1]}/${parts[2]}/${parts[0]}`;
 }
