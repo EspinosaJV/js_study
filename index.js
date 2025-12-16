@@ -1,18 +1,14 @@
-// .reduce() = reduce the elements of an array
-//             to a single value
+// function expressions = a way to define functions as values or variables
 
-const grades = [75, 50, 90, 80, 65, 95];
+// 1. Callbacks in asynchronous operations
+// 2. Higher-Order Functions
+// 3. Closures
+// 4. Event Listeners
 
-const maximum = grades.reduce(getMax);
-const minimum = grades.reduce(getMin);
-
-console.log(maximum);
-console.log(minimum);
-
-function getMax(accumulator, element){
-    return Math.max(accumulator, element);
+const hello = function(){
+    console.log("Hello");
 }
 
-function getMin(accumulator, element){
-    return Math.min(accumulator, element);
-}
+setTimeout(function(){
+    console.log("Goodbye");
+}, 5000);
