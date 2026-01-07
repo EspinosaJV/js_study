@@ -1,31 +1,38 @@
-// constructor = special method for defining the properties and methods of objects
+// class = (ES6 feature) provides a more structured and cleaner way to 
+// work with objects compared to traditional constructor functions
+// ex. static keyword, encapsulation, inheritance
 
-function Car(make, model, year, color){
-    this.make = make,
-    this.model = model,
-    this.year = year,
-    this.color = color,
-    this.drive = function(){ console.log(`You drive the ${this.model}`) }
+class Product{
+    constructor(name, price){
+        this.name = name;
+        this.price = price;
+    }
+
+    displayProduct(){
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: ${this.price.toFixed(2)}`);
+    }
+
+    calculateTotal(salesTax){
+        return this.price + (this.price * salesTax);
+    }
 }
 
-const car1 = new Car("Ford", "Mustang", 2024, "Red");
-const car2 = new Car("Chevrolet", "Camaro", 2025, "Blue");
-const car3 = new Car("Dodge", "Charger", 2026, "Silver");
+const salesTax = 0.05;
 
-console.log(car1.make);
-console.log(car1.model);
-console.log(car1.year);
-console.log(car1.color);
-car1.drive();
+const product1 = new Product("Shirt", 19.99);
+const product2 = new Product("Pants", 22.50);
+const product3 = new Product("Underwear", 100.00);
 
-console.log(car2.make);
-console.log(car2.model);
-console.log(car2.year);
-console.log(car2.color);
-car2.drive();
+product1.displayProduct();
+product2.displayProduct();
+product3.displayProduct();
 
-console.log(car3.make);
-console.log(car3.model);
-console.log(car3.year);
-console.log(car3.color);
-car3.drive();
+const total = product1.calculateTotal(salesTax);
+console.log(`Total price (With tax): $${total.toFixed(2)}`);
+
+const total2 = product2.calculateTotal(salesTax);
+console.log(`Total price (with tax): $${total2.toFixed(2)}`);
+
+const total3 = product3.calculateTotal(salesTax);
+console.log(`Total price (with tax): $${total3.toFixed(2)}`);
