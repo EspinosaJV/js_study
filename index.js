@@ -1,68 +1,67 @@
-// inheritance = allows a new class to inherit properties and methods
-// from an existing class (parent -> child)
-// helps with code reusability
+// super = keyword is used in classes to call the constructor or access the properties and methods of a parent (superclass)
+// this = this object, super = the parent
 
 class Animal{
-    alive = true;
-
-    eat(){
-        console.log(`This ${this.name} is eating`);
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
     }
-    
-    sleep(){
-        console.log(`This ${this.name} is sleeping`);
+
+    move(speed){
+        console.log(`The ${this.name} moves at a speed of ${speed}mph`);
     }
 }
-
 class Rabbit extends Animal{
-    name = "rabbit";
+    constructor(name, age, runSpeed){
+        super(name, age);
+        this.runSpeed = runSpeed;
+    }
 
     run(){
-        console.log(`This ${this.name} is running`);
+        console.log(`This ${this.name} can run`);
+        super.move(this.runSpeed);
     }
 }
-
 class Fish extends Animal{
-    name = "fish";
+    constructor(name, age, swimSpeed){
+        super(name, age);
+        this.swimSpeed = swimSpeed;
+    }
+
     swim(){
-        console.log(`This ${this.name} is swimming`);
+        console.log(`This ${this.name} can swim`);
+        super.move(this.swimSpeed);
     }
 }
-
 class Hawk extends Animal{
-    name = "hawk";
+    constructor(name, age, flySpeed){
+        super(name, age);
+        this.flySpeed = flySpeed;
+        super.move(this.flySpeed);
+    }
+
     fly(){
-        console.log(`This ${this.name} is flying`);
+        console.log(`This ${this.name} can fly`);
+        super.move(this.flySpeed);
     }
 }
 
-const rabbit = new Rabbit();
-const fish = new Fish();
-const hawk = new Hawk();
+const rabbit = new Rabbit("rabbit", 1, 25);
+const fish = new Fish("fish", 2, 12);
+const hawk = new Hawk("hawk", 3, 50);
 
-console.log(rabbit.alive);
-console.log(rabbit.eat());
-console.log(rabbit.sleep());
+console.log(rabbit.name);
+console.log(rabbit.age);
+console.log(rabbit.runSpeed);
 
-console.log(fish.alive);
-console.log(fish.eat());
-console.log(fish.sleep());
+console.log(fish.name);
+console.log(fish.age);
+console.log(fish.swimSpeed);
 
-console.log(hawk.alive);
-console.log(hawk.eat());
-console.log(hawk.sleep());
+console.log(hawk.name);
+console.log(hawk.age);
+console.log(hawk.flySpeed);
 
-console.log(rabbit.alive);
-rabbit.eat();
-rabbit.sleep();
 rabbit.run();
-
-console.log(fish.alive);
-fish.eat();
-fish.sleep();
 fish.swim();
-
-console.log(hawk.alive);
-hawk.eat();
-hawk.sleep();
 hawk.fly();
