@@ -1,35 +1,68 @@
-// static = keyword that defines properties or methods that belong
-//  to a class itself rather than the objects created
-//  from that class *(class owns anything static, not the objects)
+// inheritance = allows a new class to inherit properties and methods
+// from an existing class (parent -> child)
+// helps with code reusability
 
-class User{
-    static userCount = 0;
+class Animal{
+    alive = true;
 
-    constructor(username){
-        this.username = username;
-        User.userCount++;
+    eat(){
+        console.log(`This ${this.name} is eating`);
     }
-
-    static getUserCount(){
-        console.log(`There are ${User.userCount} users online`);
-    }
-
-    sayHello(){
-        console.log(`Hello, my username is ${this.username}`);
+    
+    sleep(){
+        console.log(`This ${this.name} is sleeping`);
     }
 }
 
-const user1 = new User("Spongebob");
-const user2 = new User("Patrick");
-const user3 = new User("Sandy");
+class Rabbit extends Animal{
+    name = "rabbit";
 
-user1.sayHello();
-user2.sayHello();
-user3.sayHello();
+    run(){
+        console.log(`This ${this.name} is running`);
+    }
+}
 
-console.log(user1.username);
-console.log(user2.username);
-console.log(user3.username);
-console.log(User.userCount);
+class Fish extends Animal{
+    name = "fish";
+    swim(){
+        console.log(`This ${this.name} is swimming`);
+    }
+}
 
-console.log(User.getUserCount());
+class Hawk extends Animal{
+    name = "hawk";
+    fly(){
+        console.log(`This ${this.name} is flying`);
+    }
+}
+
+const rabbit = new Rabbit();
+const fish = new Fish();
+const hawk = new Hawk();
+
+console.log(rabbit.alive);
+console.log(rabbit.eat());
+console.log(rabbit.sleep());
+
+console.log(fish.alive);
+console.log(fish.eat());
+console.log(fish.sleep());
+
+console.log(hawk.alive);
+console.log(hawk.eat());
+console.log(hawk.sleep());
+
+console.log(rabbit.alive);
+rabbit.eat();
+rabbit.sleep();
+rabbit.run();
+
+console.log(fish.alive);
+fish.eat();
+fish.sleep();
+fish.swim();
+
+console.log(hawk.alive);
+hawk.eat();
+hawk.sleep();
+hawk.fly();
