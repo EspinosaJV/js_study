@@ -1,63 +1,84 @@
-// getter = special method that makes a property readable
-// setter = special method that makes a property writeable
+// destructuring = extract values from arrays and objects,
+// then assign them to variables in a convenient way
+// [] = to perform array destructuring
+// {} = to perform object destructuring
+// 5 examples
 
-// validate and modify a value when reading/writing a property
+// EXAMPLE 1
+// SWAP THE VALUE OF TWO VARIABLES
 
-class Person{
+let a = 1;
+let b = 2;
 
-    constructor(firstName, lastName, age){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-    }
+[a, b] = [b, a];
 
-    set firstName(newFirstName){
-        if(typeof newFirstName === "string" && newFirstName.length > 0){
-            this._firstName = newFirstName;
-        }
-        else{
-            console.error("First Name must be a non-empty string");
-        }
-    }
+console.log(a);
+console.log(b);
 
-    set lastName(newLastName){
-        if(typeof newLastName === "string" && newLastName.length > 0){
-            this._lastName = newLastName;
-        }
-        else{
-            console.error("Last Name must be a non-empty string");
-        }
-    }
+// EXAMPLE 2
+// SWAP 2 ELEMENTS IN AN ARRAY
 
-    set age(newAge){
-        if(typeof newAge === "number" && newAge >= 0){
-            this._age = newAge;
-        }
-        else{
-            console.error("Age must be a non-negative number");
-        }
-    }
+// const colors0 = ["red", "green", "blue", "black", "white"];
 
-    get firstName(){
-        return this._firstName;
-    }
+// [colors[0], colors[4]] = [colors[4], colors[0]];
 
-    get lastName(){
-        return this._lastName;
-    }
+// console.log(colors);
 
-    get fullName(){
-        return this._firstName + " " + this._lastName;
-    }
+// EXAMPLE 3
+// ASSIGN ARRAY ELEMENTS TO VARIABLES
 
-    get age(){
-        return this._age;
-    }
+const colors = ["red", "green", "blue", "black", "white"];
+
+const [firstColor, secondColor, thirdColor, ...extraColors] = colors;
+
+console.log(firstColor);
+console.log(secondColor);
+console.log(thirdColor);
+console.log(extraColors);
+
+// EXAMPLE 4
+// EXTRACT VALUES FROM OBJECTS
+
+// const person1 = {
+//     firstName: "Spongebob",
+//     lastName: "SquarePants",
+//     age: 30,
+//     job: "Fry Cook",
+// }
+
+// const person2 = {
+//     firstName: "Patrick",
+//     lastName: "Star",
+//     age: 34,
+// }
+
+// const {firstName, lastName, age, job="Unemployed"} = person2;
+
+// console.log(firstName);
+// console.log(lastName);
+// console.log(age);
+// console.log(job);
+
+// EXAMPLE 5
+// DESTRUCTURE IN FUNCTION PARAMETERS
+
+function displayPerson({firstName, lastName, age, job="Unemployed"}){
+    console.log(`name: ${firstName} ${lastName}`);
+    console.log(`age: ${age}`);
+    console.log(`job: ${job}`);
 }
 
-const person = new Person("Spongebob", "Squarepants", 30);
+const person1 = {
+    firstName: "Spongebob",
+    lastName: "SquarePants",
+    age: 30,
+    job: "Fry Cook",
+}
 
-console.log(person.firstName);
-console.log(person.lastName);
-console.log(person.fullName);
-console.log(person.age);
+const person2 = {
+    firstName: "Patrick",
+    lastName: "Star",
+    age: 34,
+}
+
+displayPerson(person1);
