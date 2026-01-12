@@ -1,67 +1,63 @@
-// super = keyword is used in classes to call the constructor or access the properties and methods of a parent (superclass)
-// this = this object, super = the parent
+// getter = special method that makes a property readable
+// setter = special method that makes a property writeable
 
-class Animal{
-    constructor(name, age){
-        this.name = name;
+// validate and modify a value when reading/writing a property
+
+class Person{
+
+    constructor(firstName, lastName, age){
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
     }
 
-    move(speed){
-        console.log(`The ${this.name} moves at a speed of ${speed}mph`);
+    set firstName(newFirstName){
+        if(typeof newFirstName === "string" && newFirstName.length > 0){
+            this._firstName = newFirstName;
+        }
+        else{
+            console.error("First Name must be a non-empty string");
+        }
+    }
+
+    set lastName(newLastName){
+        if(typeof newLastName === "string" && newLastName.length > 0){
+            this._lastName = newLastName;
+        }
+        else{
+            console.error("Last Name must be a non-empty string");
+        }
+    }
+
+    set age(newAge){
+        if(typeof newAge === "number" && newAge >= 0){
+            this._age = newAge;
+        }
+        else{
+            console.error("Age must be a non-negative number");
+        }
+    }
+
+    get firstName(){
+        return this._firstName;
+    }
+
+    get lastName(){
+        return this._lastName;
+    }
+
+    get fullName(){
+        return this._firstName + " " + this._lastName;
+    }
+
+    get age(){
+        return this._age;
     }
 }
-class Rabbit extends Animal{
-    constructor(name, age, runSpeed){
-        super(name, age);
-        this.runSpeed = runSpeed;
-    }
 
-    run(){
-        console.log(`This ${this.name} can run`);
-        super.move(this.runSpeed);
-    }
-}
-class Fish extends Animal{
-    constructor(name, age, swimSpeed){
-        super(name, age);
-        this.swimSpeed = swimSpeed;
-    }
+const person = new Person("Spongebob", "Squarepants", 30);
 
-    swim(){
-        console.log(`This ${this.name} can swim`);
-        super.move(this.swimSpeed);
-    }
-}
-class Hawk extends Animal{
-    constructor(name, age, flySpeed){
-        super(name, age);
-        this.flySpeed = flySpeed;
-        super.move(this.flySpeed);
-    }
-
-    fly(){
-        console.log(`This ${this.name} can fly`);
-        super.move(this.flySpeed);
-    }
-}
-
-const rabbit = new Rabbit("rabbit", 1, 25);
-const fish = new Fish("fish", 2, 12);
-const hawk = new Hawk("hawk", 3, 50);
-
-console.log(rabbit.name);
-console.log(rabbit.age);
-console.log(rabbit.runSpeed);
-
-console.log(fish.name);
-console.log(fish.age);
-console.log(fish.swimSpeed);
-
-console.log(hawk.name);
-console.log(hawk.age);
-console.log(hawk.flySpeed);
-
-rabbit.run();
-fish.swim();
-hawk.fly();
+console.log(person.firstName);
+console.log(person.lastName);
+console.log(person.fullName);
+console.log(person.age);
