@@ -1,34 +1,11 @@
-class Person{
+const fruits = [{name: "apple", color: "red", calories: 95}, 
+                {name: "orange", color: "orange", calories: 45}, 
+                {name: "banana", color: "yellow", calories: 105}, 
+                {name: "coconut", color: "white", calories: 159}, 
+                {name: "pineapple", color: "yellow", calories: 37}];
 
-    constructor(name, age, ...address){
-        this.name = name;
-        this.age = age;
-        this.address = new Address(...address);
-    }
-}
+const maxFruit = fruits.reduce((max, fruit) => fruit.calories > max.calories ? fruit : max);
+const minFruit = fruits.reduce((min, fruit) => fruit.calories < min.calories ? fruit : min);
 
-class Address{
-
-    constructor(street, city, country){
-        this.street = street;
-        this.city = city;
-        this.country = country;
-    }
-}
-
-const person1 = new Person("Spongebob", 30, "124 Conch St.", "Bikini Bottom", "International Waters");
-const person2 = new Person("Patrick", 37, "128 Conch St.", "Bikini Bottom", "International Waters");
-const person3 = new Person("Squidward", 45, "126 Conch St.", "Bikini Bottom", "International Waters");
-
-console.log(person1.name);
-console.log(person1.age);
-console.log(person1.address.street);
-console.log(person1.address.city);
-console.log(person1.address.country);
-
-console.log(person3.name);
-console.log(person3.age);
-console.log(person3.address);
-console.log(person3.address.street);
-console.log(person3.address.city);
-console.log(person3.address.country);
+console.log(maxFruit);
+console.log(minFruit);
