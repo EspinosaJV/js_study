@@ -1,84 +1,34 @@
-// destructuring = extract values from arrays and objects,
-// then assign them to variables in a convenient way
-// [] = to perform array destructuring
-// {} = to perform object destructuring
-// 5 examples
+class Person{
 
-// EXAMPLE 1
-// SWAP THE VALUE OF TWO VARIABLES
-
-let a = 1;
-let b = 2;
-
-[a, b] = [b, a];
-
-console.log(a);
-console.log(b);
-
-// EXAMPLE 2
-// SWAP 2 ELEMENTS IN AN ARRAY
-
-// const colors0 = ["red", "green", "blue", "black", "white"];
-
-// [colors[0], colors[4]] = [colors[4], colors[0]];
-
-// console.log(colors);
-
-// EXAMPLE 3
-// ASSIGN ARRAY ELEMENTS TO VARIABLES
-
-const colors = ["red", "green", "blue", "black", "white"];
-
-const [firstColor, secondColor, thirdColor, ...extraColors] = colors;
-
-console.log(firstColor);
-console.log(secondColor);
-console.log(thirdColor);
-console.log(extraColors);
-
-// EXAMPLE 4
-// EXTRACT VALUES FROM OBJECTS
-
-// const person1 = {
-//     firstName: "Spongebob",
-//     lastName: "SquarePants",
-//     age: 30,
-//     job: "Fry Cook",
-// }
-
-// const person2 = {
-//     firstName: "Patrick",
-//     lastName: "Star",
-//     age: 34,
-// }
-
-// const {firstName, lastName, age, job="Unemployed"} = person2;
-
-// console.log(firstName);
-// console.log(lastName);
-// console.log(age);
-// console.log(job);
-
-// EXAMPLE 5
-// DESTRUCTURE IN FUNCTION PARAMETERS
-
-function displayPerson({firstName, lastName, age, job="Unemployed"}){
-    console.log(`name: ${firstName} ${lastName}`);
-    console.log(`age: ${age}`);
-    console.log(`job: ${job}`);
+    constructor(name, age, ...address){
+        this.name = name;
+        this.age = age;
+        this.address = new Address(...address);
+    }
 }
 
-const person1 = {
-    firstName: "Spongebob",
-    lastName: "SquarePants",
-    age: 30,
-    job: "Fry Cook",
+class Address{
+
+    constructor(street, city, country){
+        this.street = street;
+        this.city = city;
+        this.country = country;
+    }
 }
 
-const person2 = {
-    firstName: "Patrick",
-    lastName: "Star",
-    age: 34,
-}
+const person1 = new Person("Spongebob", 30, "124 Conch St.", "Bikini Bottom", "International Waters");
+const person2 = new Person("Patrick", 37, "128 Conch St.", "Bikini Bottom", "International Waters");
+const person3 = new Person("Squidward", 45, "126 Conch St.", "Bikini Bottom", "International Waters");
 
-displayPerson(person1);
+console.log(person1.name);
+console.log(person1.age);
+console.log(person1.address.street);
+console.log(person1.address.city);
+console.log(person1.address.country);
+
+console.log(person3.name);
+console.log(person3.age);
+console.log(person3.address);
+console.log(person3.address.street);
+console.log(person3.address.city);
+console.log(person3.address.country);
